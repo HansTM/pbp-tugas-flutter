@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               _counter % 2 == 1 ? "GANJIL" : "GENAP",
               style: TextStyle(
-                color: _counter % 2 == 1 ? Colors.red : Colors.blue
+                color: _counter % 2 == 0 ? Colors.red : Colors.blue
               )
             ),
             Text(
