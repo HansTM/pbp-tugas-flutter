@@ -1,4 +1,6 @@
 import 'package:counter_7/counter.dart';
+import 'package:counter_7/budget-form.dart';
+import 'package:counter_7/budget-list.dart';
 import 'package:flutter/material.dart';
 
 class GlobalDrawer extends StatelessWidget {
@@ -11,14 +13,50 @@ class GlobalDrawer extends StatelessWidget {
     return Drawer(
       child: Column(
         children: [
-          // Menambahkan clickable menu
+          const ListTile(
+            title: Text(
+              'Tugas 7',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black54,
+              )
+            ),
+            dense: true,
+          ),
           ListTile(
             title: const Text('Counter'),
             onTap: () {
-              // Route menu ke halaman utama
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => const CounterPage()),
+              );
+            },
+          ),
+          const ListTile(
+            title: Text(
+              'Tugas 8',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black54,
+              )
+            ),
+            dense: true,
+          ),
+          ListTile(
+            title: const Text('Tambah Budget'),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const BudgetFormPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Data Budget'),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const BudgetListPage()),
               );
             },
           ),
