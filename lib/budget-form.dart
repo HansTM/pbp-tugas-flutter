@@ -1,5 +1,7 @@
+import 'package:counter_7/budget-data.dart';
 import 'package:counter_7/drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class BudgetFormPage extends StatefulWidget {
   const BudgetFormPage({super.key});
@@ -12,11 +14,11 @@ class BudgetFormPage extends StatefulWidget {
 class _BudgetFormPageState extends State<BudgetFormPage> {
   final _formKey = GlobalKey<FormState>();
 
-  String judulBudget = '';
-  int nominalBudget = 0;
-  List<String> listTipeBudget = ['Pemasukan', 'Pengeluaran'];
-  String tipeBudget = 'Pemasukan';
-  DateTime? tanggalBudget;
+  String _judul = '';
+  int _nominal = 0;
+  final List<String> _listTipe = ['Pemasukan', 'Pengeluaran'];
+  String _tipe = 'Pemasukan';
+  DateTime? _tanggal = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +47,12 @@ class _BudgetFormPageState extends State<BudgetFormPage> {
                     ),
                     onChanged: (String? value) {
                       setState(() {
-                        judulBudget = value!;
+                        _judul = value!;
                       });
                     },
                     onSaved: (String? value) {
                       setState(() {
-                        judulBudget = value!;
+                        _judul = value!;
                       });
                     },
                     validator: (String? value) {
@@ -72,14 +74,18 @@ class _BudgetFormPageState extends State<BudgetFormPage> {
                         borderRadius: BorderRadius.circular(5.0),
                       ),
                     ),
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly
+                    ],
                     onChanged: (String? value) {
                       setState(() {
-                        nominalBudget = value! as int;
+                        _nominal = int.parse(value!);
                       });
                     },
                     onSaved: (String? value) {
                       setState(() {
-                        nominalBudget = value! as int;
+                        _nominal = int.parse(value!);
                       });
                     },
                     validator: (String? value) {
@@ -96,9 +102,9 @@ class _BudgetFormPageState extends State<BudgetFormPage> {
                     'Tipe',
                   ),
                   trailing: DropdownButton(
-                    value: tipeBudget,
+                    value: _tipe,
                     icon: const Icon(Icons.keyboard_arrow_down),
-                    items: listTipeBudget.map((String items) {
+                    items: _listTipe.map((String items) {
                       return DropdownMenuItem(
                         value: items,
                         child: Text(items),
@@ -106,7 +112,7 @@ class _BudgetFormPageState extends State<BudgetFormPage> {
                     }).toList(),
                     onChanged: (String? newValue) {
                       setState(() {
-                        tipeBudget = newValue!;
+                        _tipe = newValue!;
                       });
                     },
                   ),
@@ -121,7 +127,7 @@ class _BudgetFormPageState extends State<BudgetFormPage> {
                       backgroundColor: MaterialStateProperty.all(Colors.blue),
                     ),
                     child: Text(
-                      tanggalBudget == null ? 'Tidak ada' : tanggalBudget.toString(),
+                      _tanggal == null ? 'Tidak ada' : _tanggal.toString(),
                       style: const TextStyle(color: Colors.white),
                     ),
                     onPressed: () {
@@ -132,7 +138,7 @@ class _BudgetFormPageState extends State<BudgetFormPage> {
                         lastDate: DateTime(2099),
                       ).then((date) {  //tambahkan setState dan panggil variabel _dateTime.
                         setState(() {
-                          tanggalBudget = date;
+                          _tanggal = date;
                         });
                       });
                     },
@@ -149,7 +155,8 @@ class _BudgetFormPageState extends State<BudgetFormPage> {
                   ),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-
+                      budgetList.add(BudgetEntry(_judul, _nominal, _tipe, _tanggal!));
+                      // log(budgetList.length.toString());
                     }
                   },
                 ),
