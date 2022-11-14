@@ -1,6 +1,7 @@
 import 'package:counter_7/budget-data.dart';
 import 'package:counter_7/drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class BudgetListPage extends StatefulWidget {
   const BudgetListPage({super.key});
@@ -55,13 +56,12 @@ class _BudgetListPageState extends State<BudgetListPage> {
                             )
                           ]
                         ),
-                        
                       ],
                     )
                   ),
                   subtitle: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
-                    child: Text(item.tanggal.toString()),  
+                    child: Text(DateFormat("dd MMMM y").format(item.tanggal)),  
                   ),
                 ),
               );

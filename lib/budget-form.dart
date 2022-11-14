@@ -2,6 +2,7 @@ import 'package:counter_7/budget-data.dart';
 import 'package:counter_7/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 
 class BudgetFormPage extends StatefulWidget {
   const BudgetFormPage({super.key});
@@ -127,7 +128,7 @@ class _BudgetFormPageState extends State<BudgetFormPage> {
                       backgroundColor: MaterialStateProperty.all(Colors.blue),
                     ),
                     child: Text(
-                      _tanggal == null ? 'Tidak ada' : _tanggal.toString(),
+                      _tanggal == null ? 'Tidak ada' : DateFormat("dd MMMM y").format(_tanggal!),
                       style: const TextStyle(color: Colors.white),
                     ),
                     onPressed: () {
