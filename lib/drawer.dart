@@ -1,6 +1,6 @@
 import 'package:counter_7/counter.dart';
-import 'package:counter_7/budget-form.dart';
-import 'package:counter_7/budget-list.dart';
+import 'package:counter_7/budget_form.dart';
+import 'package:counter_7/budget_list.dart';
 import 'package:flutter/material.dart';
 
 class GlobalDrawer extends StatelessWidget {
