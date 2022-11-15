@@ -24,7 +24,7 @@ class _BudgetListPageState extends State<BudgetListPage> {
         child: Container(
           padding: const EdgeInsets.all(20.0),
           child: Column(
-            children: budgetList.map((BudgetEntry item) {
+            children: budgetList.map((BudgetEntry entry) {
               return Card(
                 child: ListTile(
                   title: Padding(
@@ -35,7 +35,7 @@ class _BudgetListPageState extends State<BudgetListPage> {
                         Padding(
                           padding: const EdgeInsets.only(bottom: 10),
                           child: Text(
-                            item.judul,
+                            entry.judul,
                             style: const TextStyle(
                               fontSize: 28,
                               fontWeight: FontWeight.w600,
@@ -46,13 +46,13 @@ class _BudgetListPageState extends State<BudgetListPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              item.nominal.toString(),
+                              entry.nominal.toString(),
                               style: const TextStyle(
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
                             Text(
-                              item.tipe
+                              entry.tipe
                             )
                           ]
                         ),
@@ -61,7 +61,7 @@ class _BudgetListPageState extends State<BudgetListPage> {
                   ),
                   subtitle: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
-                    child: Text(DateFormat("dd MMMM y").format(item.tanggal)),  
+                    child: Text(DateFormat("dd MMMM y").format(entry.tanggal)),  
                   ),
                 ),
               );
