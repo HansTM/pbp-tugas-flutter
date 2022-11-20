@@ -48,7 +48,7 @@ class _WatchListListPageState extends State<WatchListListPage> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const WatchListDetailsPage()),
+                      MaterialPageRoute(builder: (context) => WatchListDetailsPage(watchlist: snapshot.data![index])),
                     );
                   },
                 ),
