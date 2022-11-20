@@ -1,5 +1,5 @@
-import 'package:tugas/budget_data.dart';
-import 'package:tugas/drawer.dart';
+import 'package:tugas/model/budget.dart';
+import 'package:tugas/page/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

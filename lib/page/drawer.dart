@@ -1,6 +1,7 @@
-import 'package:tugas/counter.dart';
-import 'package:tugas/budget_form.dart';
-import 'package:tugas/budget_list.dart';
+import 'package:tugas/page/counter.dart';
+import 'package:tugas/page/budget/form.dart';
+import 'package:tugas/page/budget/list.dart';
+import 'package:tugas/page/watchlist/list.dart';
 import 'package:flutter/material.dart';
 
 class GlobalDrawer extends StatelessWidget {
@@ -57,6 +58,25 @@ class GlobalDrawer extends StatelessWidget {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => const BudgetListPage()),
+              );
+            },
+          ),
+          const ListTile(
+            title: Text(
+              'Tugas 9',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black54,
+              )
+            ),
+            dense: true,
+          ),
+          ListTile(
+            title: const Text('My Watch List'),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const WatchListListPage()),
               );
             },
           ),
