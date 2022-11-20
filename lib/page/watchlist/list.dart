@@ -1,7 +1,7 @@
-import 'package:tugas/model/budget.dart';
+import 'package:tugas/model/mywatchlist.dart';
 import 'package:tugas/page/drawer.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:tugas/page/watchlist/details.dart';
 
 class WatchListListPage extends StatefulWidget {
   const WatchListListPage({super.key});
@@ -12,6 +12,13 @@ class WatchListListPage extends StatefulWidget {
 }
 
 class _WatchListListPageState extends State<WatchListListPage> {
+  late Future<List<MyWatchList>> futureMyWatchList;
+
+  @override
+  void initState() {
+    super.initState();
+    futureMyWatchList = fetchMyWatchlist();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,55 +27,40 @@ class _WatchListListPageState extends State<WatchListListPage> {
         title: Text(widget.title),
       ),
       drawer: const GlobalDrawer(),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: budgetList.map((BudgetEntry entry) {
-              return Card(
-                child: ListTile(
-                  title: Padding(
-                    padding: const EdgeInsets.only(top: 10, bottom: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 10),
-                          child: Text(
-                            entry.judul,
-                            style: const TextStyle(
-                              fontSize: 28,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              entry.nominal.toString(),
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            Text(
-                              entry.tipe
-                            )
-                          ]
-                        ),
-                      ],
-                    )
+      body: FutureBuilder<List<MyWatchList>>(
+        future: futureMyWatchList,
+        builder: (context, AsyncSnapshot snapshot) {
+          if (snapshot.hasData) {
+            return ListView.builder(
+              itemCount: snapshot.data!.length,
+              itemBuilder: (_, index) => Card(
+                child: InkWell(
+                  child: Container(
+                    padding: const EdgeInsets.all(16),
+                    child: Text(
+                      "${snapshot.data![index].fields.title}",
+                      style: const TextStyle(
+                        // fontSize: 18.0,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ),
-                  subtitle: Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: Text(DateFormat("dd MMMM y").format(entry.tanggal)),  
-                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const WatchListDetailsPage()),
+                    );
+                  },
                 ),
-              );
-            }).toList()
-          ),
-        ),
-      ),
+              ),
+            );
+          } else if (snapshot.hasError) {
+            return Text('${snapshot.error}');
+          }
+
+          return const CircularProgressIndicator();
+        }
+      )
     );
   }
 }
