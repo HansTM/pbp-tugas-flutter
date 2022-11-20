@@ -34,6 +34,7 @@ class _WatchListListPageState extends State<WatchListListPage> {
             return ListView.builder(
               itemCount: snapshot.data!.length,
               itemBuilder: (_, index) => Card(
+                margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
                 child: InkWell(
                   child: Container(
                     padding: const EdgeInsets.all(16),
