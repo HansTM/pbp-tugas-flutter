@@ -12,3 +12,6 @@ Selamat datang! Repositori ini digunakan untuk tugas [Tugas 7-](https://pbp-fasi
 - Tugas 8: Flutter Form
   - Soal: [tugas/tugas-8](https://pbp-fasilkom-ui.github.io/ganjil-2023/assignments/tugas/tugas-8)
   - README: [docs/tugas-8.md](docs/tugas-8.md)
+- Tugas 9: Integrasi Web Service pada Flutter
+  - Soal: [tugas/tugas-9](https://pbp-fasilkom-ui.github.io/ganjil-2023/assignments/tugas/tugas-9)
+  - README: [docs/tugas-9.md](docs/tugas-9.md)
