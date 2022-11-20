@@ -31,15 +31,17 @@ TODO
 1. `Scaffold`: Struktur *layout* sederhana dengan *material design*.
 2. `AppBar`: Bar yang berada di atas halaman, yang biasanya mengandung judul, *widget* aksi, dan sebagainya. 
 3. `Text`: Tulisan atau teks.
-4. `Center`: Untuk menengahkan *widget* yang ada.
-5. `Padding`: Untuk membuat *padding* pada sebuah *widget*.
+4. `Alignment`: Untuk mengatur *alignment* *widget* yang ada.
+5. `Container`: Kotak sebuah *widget*, yang *padding*, *margin*, *border*, dsb dapat diatur.
 6. `Column`: Agar *widget*-*widget* dapat muncul dalam satu kolom.
 7. `Row`: Agar *widget*-*widget* dapat muncul dalam satu baris.
 8. `Drawer`: Panel yang muncul dari kiri layar untuk menunjukkan pranala-pranala navigasi.
 9. `ListTile`: Baris dengan suatu ketinggian yang biasanya memiliki sebuah tulisan dan *icon* pada sebelum dan sesudahnya.
 10. `Card`: Kartu, atau sebuah kotak dengan sudut melingkar dan bayangan.
-
-TODO
+11. `RichText`: TODO
+12. `ListView`: TODO
+13. `Checkbox`: TODO
+14. `CircularProgressIndicator`: TODO
 
 - Jelaskan mekanisme pengambilan data dari json hingga dapat ditampilkan pada Flutter.
 
