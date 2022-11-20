@@ -48,7 +48,7 @@ class _WatchListDetailsPageState extends State<WatchListDetailsPage> {
                   text: TextSpan(
                     children: [
                       const TextSpan(text: 'Release Date: ', style: TextStyle(fontWeight: FontWeight.bold)),
-                      TextSpan(text: widget.watchlist.fields.releaseDate.toString())
+                      TextSpan(text: DateFormat("dd MMMM y").format(widget.watchlist.fields.releaseDate))
                     ],
                     style: const TextStyle(color: Colors.black87, fontFamily: 'Roboto')
                   )
