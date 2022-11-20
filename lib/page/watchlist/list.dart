@@ -35,6 +35,12 @@ class _WatchListListPageState extends State<WatchListListPage> {
               itemCount: snapshot.data!.length,
               itemBuilder: (_, index) => Card(
                 margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(4),
+                  side: BorderSide(
+                    color: snapshot.data![index].fields.watched ? Colors.green : Colors.red
+                  )
+                ),
                 child: InkWell(
                   child: Container(
                     padding: const EdgeInsets.all(16),
