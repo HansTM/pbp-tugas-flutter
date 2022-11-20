@@ -15,8 +15,8 @@
 
 ### Bonus
 
-- [ ] Menambahkan *checkbox* pada setiap *watchlist* pada halaman *mywatchlist*. Dimana *checkbox* akan tercentang jika status ditonton bernilai `true` dan tidak jika bernilai `false`.
-  - [ ] Jika *checkbox* ditekan, maka status ditonton akan berubah (perubahan akan terjadi di lokal secara sementara saja, status pada endpoint tidak perlu diubah)
+- [x] Menambahkan *checkbox* pada setiap *watchlist* pada halaman *mywatchlist*. Dimana *checkbox* akan tercentang jika status ditonton bernilai `true` dan tidak jika bernilai `false`.
+  - [x] Jika *checkbox* ditekan, maka status ditonton akan berubah (perubahan akan terjadi di lokal secara sementara saja, status pada endpoint tidak perlu diubah)
 - [x] Menambahkan warna untuk *outline* pada setiap *mywatchlist* pada halaman *mywatchlist* berdasarkan status ditonton (Dua warna yang dipilih bebas).
 - [x] *Refactor* function fetch data dari web service ke sebuah file terpisah.
 

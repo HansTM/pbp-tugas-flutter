@@ -43,14 +43,27 @@ class _WatchListListPageState extends State<WatchListListPage> {
                 ),
                 child: InkWell(
                   child: Container(
-                    padding: const EdgeInsets.all(16),
-                    child: Text(
-                      "${snapshot.data![index].fields.title}",
-                      style: const TextStyle(
-                        // fontSize: 18.0,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
+                    padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "${snapshot.data![index].fields.title}",
+                          style: const TextStyle(
+                            // fontSize: 18.0,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        Checkbox(
+                          value: snapshot.data![index].fields.watched, 
+                          onChanged: (bool? value) {
+                            setState(() {
+                              snapshot.data![index].fields.watched = value!;
+                            });
+                          }
+                        )
+                      ],
+                    )
                   ),
                   onTap: () {
                     Navigator.push(
