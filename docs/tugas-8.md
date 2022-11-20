@@ -2,8 +2,6 @@
 
 [![Tugas 8](https://img.shields.io/badge/assignment-Tugas%208-blue)](https://pbp-fasilkom-ui.github.io/ganjil-2023/assignments/tugas/tugas-8)
 
-Selamat datang! Repositori ini digunakan untuk [Tugas 8](https://pbp-fasilkom-ui.github.io/ganjil-2023/assignments/tugas/tugas-8) dalam mata kuliah Pemrograman Berbasis Platform. 
-
 ## Checklist
 
 - [x] Menambahkan drawer/hamburger menu pada app yang telah dibuat sebeumnya.
@@ -18,7 +16,7 @@ Selamat datang! Repositori ini digunakan untuk [Tugas 8](https://pbp-fasilkom-ui
   - [x] Menambahkan button untuk menyimpan _budget_.
 - [x] Menambahkan halaman data _budget_
   - [x] Menampilkan semua judul, nominal, dan tipe _budget_ yang telah ditambahkan pada form.
-- [ ] Menjawab beberapa pertanyaan berikut pada `README.md` pada _root folder_ (silakan modifikasi `README.md` yang telah kamu buat sebelumnya; tambahkan subjudul untuk setiap tugas).
+- [x] Menjawab beberapa pertanyaan berikut pada `README.md` pada _root folder_ (silakan modifikasi `README.md` yang telah kamu buat sebelumnya; tambahkan subjudul untuk setiap tugas).
 - [x] Melakukan `add`-`commit`-`push` ke GitHub.
 
 ### Bonus
@@ -26,6 +24,7 @@ Selamat datang! Repositori ini digunakan untuk [Tugas 8](https://pbp-fasilkom-ui
 - [x] Menambahkan elemen date picker pada halaman form.
 - [x] Menampilkan elemen date (format bebas) pada setiap elemen _budget_ yang ada pada halaman data _budget_.
 - [x] _Refactor_ widget Drawer ke sebuah file terpisah.
+
 ## Jawaban
 
 - Jelaskan perbedaan `Navigator.push` dan `Navigator.pushReplacement`.
