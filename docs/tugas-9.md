@@ -24,7 +24,11 @@
 
 - Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
 
-TODO
+Bisa, namun pasti akan lebih sulit.
+
+Kelas-kelas dan fungsi-fungsi dibuat sebagai perantara agar pengembangan dapat dilakukan dengan lebih mudah. Dengan kelas-kelas dan metode-metode tersebut, pengembang tidak perlu repot berasumsi atau mengecek lagi bentuk data yang ada, atau membuat fungsi yang memiliki fungsi yang sama.
+
+Data mentah yang diperoleh dapat saja langsung digunakan, namun dengan konsiderasi yang disebutkan sebelumnya, pastinya ini akan lebih berisiko.
 
 - Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya.
 
@@ -38,23 +42,35 @@ TODO
 8. `Drawer`: Panel yang muncul dari kiri layar untuk menunjukkan pranala-pranala navigasi.
 9. `ListTile`: Baris dengan suatu ketinggian yang biasanya memiliki sebuah tulisan dan *icon* pada sebelum dan sesudahnya.
 10. `Card`: Kartu, atau sebuah kotak dengan sudut melingkar dan bayangan.
-11. `RichText`: TODO
-12. `ListView`: TODO
-13. `Checkbox`: TODO
-14. `CircularProgressIndicator`: TODO
+11. `RichText`: Teks, namun dapat menggunakan gaya-gaya yang lebih variatif.
+12. `ListView`: Daftar list yang tersusun secara linier dan dapat di-*scroll*.
+13. `Checkbox`: Kotak centang.
+14. `InkWell`: Daerah yang menanggapi sentuhan dari pengguna.
+15. `CircularProgressIndicator`: Indikator lingkaran yang berputar untuk menandakan kesibukan aplikasi.
 
 - Jelaskan mekanisme pengambilan data dari json hingga dapat ditampilkan pada Flutter.
 
-TODO
+Dengan asumsi API telah siap untuk diakses, `http` telah ditambahkan sebagai *dependency*, dan *permissions* telah diberikan untuk aplikasi Android-nya, mekanismenya adalah sebagai berikut:
+
+1. Buat model yang bersesuaian dengan data yang akan digunakan saat berinteraksi dengan API. Model ini terdiri dari sebuah kelas (*class*) sesuai dengan datanya, dan juga pembacanya untuk mengubahnya response JSON tersebut menjadi sebuah obyek dengan kelasnya.
+2. Buat fungsi pengambil (*fetch*), yang akan mengambil data dari *server* melalui API, dengan menggunakan `http` dan mengeluarkan sebuah `Future` yang akan menghasilkan sebuah obyek yang bersesuaian dengan model yang telah dibuat.
+3. Gunakan fungsi pengambil tersebut dengan *endpoint* API yang telah dibuat untuk mengambil data yang diperlukan.
+4. Tayangkan data yang telah diambil pada antarmuka pengguna, entah dengan `ListView.builder`, `.map()`, atau cara lain, tergantung dengan bentuk datanya. 
 
 - Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas.
 
-1. Buat halaman-halaman awal (kosong) untuk detil dan daftar *watchlist*. (`page/watchlist/details.dart` dan `page/watchlist/list.dart`)
+1. Tambahkan *dependency* `http` dan permission `android.permission.INTERNET` agar aplikasi dapat berhubung ke internet.
+2. Buat halaman-halaman awal (kosong) untuk detil dan daftar *watchlist*. (`page/watchlist/details.dart` dan `page/watchlist/list.dart`)
 3. Tambah halaman ke dalam *drawer*.
-2. Buat kode untuk menangani data watchlist (`model/watchlist.dart`)
-   1. TODO
-4. Isi halaman daftar.
-   1. TODO
-5. Isi halaman detil.
-   1. TODO
-6. *Add*, *commit*, dan *push* perubahan yang ada.
+4. Buat kode untuk menangani data watchlist (`model/watchlist.dart`)
+   1. Buat model `MyWatchList` untuk data *watchlist* kita.
+   2. Buat fungsi *fetch* untuk mendapatkan data dari *server*.
+5. Isi halaman daftar.
+   1. Panggil fungsi *fetch*, yang telah dibuat, pada saat inisialisasi (*state*-nya). Sebuah `Future` akan diberikan. 
+   2. Gunakan `FutureBuilder` untuk menggunakan data yang tertera di `Future` tersebut.
+   3. Gunakan `ListView.builder` untuk membuat sebuah `ListView` dari array yang diberikan. 
+   4. Dengan `InkWell`, yang dibuat di dalam `Card`, buat agar aplikasi beralih ke halaman detil dengan entri *watchlist* yang terkait.
+6. Isi halaman detil.
+   1. Ambil entri *watchlist* yang diberikan oleh halaman sebelumnya.
+   2. Dengan *widget*-*widget* yang tersedia, buat halaman detil dengan data *watchlist* sebelumnya. `RichText` akan digunakan agar tulisan dapat dibuat lebih variatif.
+7. *Add*, *commit*, dan *push* perubahan yang ada.
